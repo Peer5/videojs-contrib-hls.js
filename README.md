@@ -1,5 +1,6 @@
 # hls.js Source Handler for video.js
-Play back HLS with [video.js](https://github.com/videojs/video.js), even where it's not natively supported. Using [Dailymotion's hls.js](https://github.com/dailymotion/hls.js) tech
+Play back HLS with [video.js](https://github.com/videojs/video.js), even where it's not natively supported. Using [Dailymotion's hls.js](https://github.com/dailymotion/hls.js) tech.
+This bundled plugin is **replacing** the original [videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls)
 
 ## Installation
 ### NPM
@@ -10,7 +11,7 @@ npm install --save videojs-contrib-hls.js
 ```
 
 ### CDN
-Select a version of HLS from the [CDN](...)
+Select a version from the [CDN](...)
 
 ### Releases
 Download a release of [videojs-contrib-hls](https://github.com/peer5/videojs-contrib-hls.js/releases)
@@ -23,7 +24,7 @@ Get a copy of [videojs-contrib-hls](#installation) and include it in your page a
   <source src="https://example.com/index.m3u8" type="application/x-mpegURL">
 </video>
 <script src="video.js"></script>
-<script src="videojs-contrib-hlsjs.min.js"></script>
+<script src="videojs-contrib-hlsjs.js"></script>
 <script>
   var player = videojs('#player');
 </script>
