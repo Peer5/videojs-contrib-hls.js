@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videojs-contrib-hls.js</title>
+    <link rel="stylesheet" href="../node_modules/video.js/dist/video-js.min.css">
+    <script src="../node_modules/video.js/dist/video.min.js"></script>
+    <script src="../node_modules/videojs-contrib-media-sources/dist/videojs-contrib-media-sources.min.js"></script>
+    <script src="../node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js"></script>
+    <script src="../node_modules/hls.js/dist/hls.min.js"></script>
+    <script src="../src/videojs5.hlsjs.js"></script>
+</head>
+<body>
+<video id="player" class="video-js vjs-default-skin" height="360" width="640" controls preload="none">
+    <source src="https://wowza.peer5.com/live/smil:clock.smil/playlist.m3u8"
+            type="application/x-mpegURL"/>
+</video>
+<script>
+    var player = videojs('#player');
+</script>
+</body>
+</html>
