@@ -1,6 +1,9 @@
-# hls.js Source Handler for video.js
-Play back HLS with [video.js](https://github.com/videojs/video.js), even where it's not natively supported. Using [Dailymotion's hls.js](https://github.com/dailymotion/hls.js) tech.
-This bundled plugin is **replacing** the original [videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls)
+# HLS plugin for video.js using hls.js
+Plays HLS with [video.js](https://github.com/videojs/video.js) on any platform, even where it's not natively supported, using [Dailymotion's hls.js](https://github.com/dailymotion/hls.js) tech. 
+
+This bundled plugin is **replacing** the original [videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls) and runs directly on top of [video.js 5.0+](https://github.com/videojs/video.js).
+
+Like the original implemenation, the plugin implements a standard source handler for m3u8 files.
 
 ## Installation
 ### NPM
