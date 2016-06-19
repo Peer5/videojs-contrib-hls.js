@@ -3,7 +3,7 @@ Plays HLS with [video.js](https://github.com/videojs/video.js) on any platform, 
 
 This bundled plugin is **replacing** the original [videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls) and runs directly on top of [video.js 5.0+](https://github.com/videojs/video.js).
 
-Like the original implemenation, the plugin implements a standard source handler for m3u8 files.
+Like the original implemenation, this plugin implements a source handler for m3u8 files.
 
 ## Installation
 ### NPM
