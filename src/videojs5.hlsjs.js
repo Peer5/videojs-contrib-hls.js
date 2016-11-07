@@ -104,7 +104,9 @@
             var hlsTypeRE = /^application\/x-mpegURL$/i;
             var hlsExtRE = /\.m3u8/i;
 
-            if (hlsTypeRE.test(source.type)) {
+            if (source.skipContribHlsJs) {
+                return '';
+            } else if (hlsTypeRE.test(source.type)) {
                 return 'probably';
             } else if (hlsExtRE.test(source.src)) {
                 return 'maybe';
