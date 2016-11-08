@@ -7,10 +7,10 @@
     "example": "examples"
   },
   "dependencies": {
-    "hls.js": "^0.5.44",
-    "video.js": "^5.13.0",
-    "videojs-contrib-hls": "^3.5.3",
-    "videojs-contrib-media-sources": "^3.1.5"
+    "hls.js": "^0.6.7",
+    "video.js": "^5.11.9",
+    "videojs-contrib-hls": "^3.6.6",
+    "videojs-contrib-media-sources": "^4.0.4"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
