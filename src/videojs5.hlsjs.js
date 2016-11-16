@@ -94,6 +94,13 @@
             }
         });
 
+        Object.keys(Hls.Events).forEach(function(key) {
+            var eventName = Hls.Events[key];
+            hls.on(eventName, function(event, data) {
+                tech.trigger(eventName, data);
+            });
+        });
+
         // attach hlsjs to videotag
         hls.attachMedia(el);
         hls.loadSource(source.src);
