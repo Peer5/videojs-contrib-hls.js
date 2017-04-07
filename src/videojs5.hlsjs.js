@@ -100,6 +100,18 @@ function Html5HlsJS(source, tech) {
     });
   });
 
+  // Intercept native TextTrack calls and route to video.js directly only
+  // if native text tracks are not supported on this browser.
+  if (!tech.featuresNativeTextTracks) {
+    Object.defineProperty(el, 'textTracks', {
+      value: tech.textTracks,
+      writable: false
+    });
+    el.addTextTrack = function() {
+      return tech.addTextTrack(arguments);
+    }
+  }
+
   // attach hlsjs to videotag
   hls.attachMedia(el);
   hls.loadSource(source.src);
