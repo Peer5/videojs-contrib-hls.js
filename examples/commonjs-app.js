@@ -5,6 +5,4 @@ require('videojs-contrib-media-sources'); // increase browser support with MSE p
 require('videojs-contrib-hlsjs'); // auto attaches hlsjs handler
 
 
-window.onload = function() {
-  var player = videojs('#player');
-};
+var player = videojs('#player');
