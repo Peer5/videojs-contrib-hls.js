@@ -107,7 +107,7 @@ function Html5HlsJS(source, tech) {
 
 var HlsSourceHandler = {
   canHandleSource: function(source) {
-    var hlsTypeRE = /^application\/x-mpegURL$/i;
+    var hlsTypeRE = /^(application\/x-mpegURL|application\/vnd\.apple\.mpegurl)$/i;
     var hlsExtRE = /\.m3u8/i;
 
     if (source.skipContribHlsJs) {
