@@ -105,9 +105,10 @@ function Html5HlsJS(source, tech) {
   hls.loadSource(source.src);
 }
 
+var hlsTypeRE = /^(application\/x-mpegURL|application\/vnd\.apple\.mpegurl)$/i;
+
 var HlsSourceHandler = {
   canHandleSource: function(source) {
-    var hlsTypeRE = /^(application\/x-mpegURL|application\/vnd\.apple\.mpegurl)$/i;
     var hlsExtRE = /\.m3u8/i;
 
     if (source.skipContribHlsJs) {
@@ -127,7 +128,6 @@ var HlsSourceHandler = {
     return new Html5HlsJS(source, tech);
   },
   canPlayType: function(type) {
-    var hlsTypeRE = /^application\/x-mpegURL$/i;
     if (hlsTypeRE.test(type)) {
       return 'probably';
     }
