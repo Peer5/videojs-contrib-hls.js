@@ -108,7 +108,7 @@ function Html5HlsJS(source, tech) {
       writable: false
     });
     el.addTextTrack = function() {
-      return tech.addTextTrack(arguments);
+      return tech.addTextTrack.apply(tech, arguments)
     }
   }
 
