@@ -1,6 +1,6 @@
 {
   "name": "videojs-contrib-hls.js",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "hls.js plugin for videojs",
   "main": "dist/videojs-contrib-hlsjs.min.js",
   "directories": {
