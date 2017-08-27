@@ -150,8 +150,12 @@ var HlsSourceHandler = {
 if (Hls.isSupported()) {
   var videojs = require('video.js'); // resolved UMD-wise through webpack
 
+  // we could just use `import videojs from 'video.js'`
+  // but that will require a `babel-loader` or similar dependency
+  videojs = videojs.default || videojs;
+
   if (videojs) {
-    videojs.getComponent('Html5').registerSourceHandler(HlsSourceHandler, 0);
+    videojs.getTech('Html5').registerSourceHandler(HlsSourceHandler, 0);
   }
   else {
     console.warn('videojs-contrib-hls.js: Couldn\'t find find window.videojs nor require(\'video.js\')');
