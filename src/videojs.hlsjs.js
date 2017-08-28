@@ -150,12 +150,16 @@ var HlsSourceHandler = {
 if (Hls.isSupported()) {
   var videojs = require('video.js'); // resolved UMD-wise through webpack
 
-  // we could just use `import videojs from 'video.js'`
-  // but that will require a `babel-loader` or similar dependency
+  // support es6 style import
   videojs = videojs.default || videojs;
 
   if (videojs) {
-    videojs.getTech('Html5').registerSourceHandler(HlsSourceHandler, 0);
+    var html5Tech = videojs.getTech && videojs.getTech('Html5'); // videojs6 (partially on videojs5 too)
+    html5Tech = html5Tech || (videojs.getComponent && videojs.getComponent('Html5')); // videojs5
+
+    if (html5Tech) {
+      html5Tech.registerSourceHandler(HlsSourceHandler, 0);
+    }
   }
   else {
     console.warn('videojs-contrib-hls.js: Couldn\'t find find window.videojs nor require(\'video.js\')');
