@@ -1,13 +1,13 @@
 {
   "name": "videojs-contrib-hls.js",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "hls.js plugin for videojs",
   "main": "dist/videojs-contrib-hlsjs.min.js",
   "directories": {
     "example": "examples"
   },
   "dependencies": {
-    "hls.js": "^0.7.6"
+    "hls.js": "^0.8.1"
   },
   "devDependencies": {
     "webpack": "2.4.1"
