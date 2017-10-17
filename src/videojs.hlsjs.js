@@ -12,7 +12,7 @@ function Html5HlsJS(source, tech) {
   var options = tech.options_;
   var el = tech.el();
   var duration = null;
-  var hls = new Hls(options.hlsjsConfig);
+  var hls = this.hls = new Hls(options.hlsjsConfig);
 
   /**
    * creates an error handler function
