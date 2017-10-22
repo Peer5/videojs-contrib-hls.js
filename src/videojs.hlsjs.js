@@ -2,6 +2,10 @@
 
 var Hls = require('hls.js');
 
+if (!window.Hls) {
+  window.Hls = Hls; // expose hls.js constructor
+}
+
 /**
  * hls.js source handler
  * @param source
@@ -57,7 +61,7 @@ function Html5HlsJS(source, tech) {
   });
 
   /**
-   *
+   * Destroys the Hls instance
    */
   this.dispose = function() {
     hls.destroy();
@@ -108,8 +112,8 @@ function Html5HlsJS(source, tech) {
       writable: false
     });
     el.addTextTrack = function() {
-      return tech.addTextTrack.apply(tech, arguments)
-    }
+      return tech.addTextTrack.apply(tech, arguments);
+    };
   }
 
   // attach hlsjs to videotag
@@ -151,7 +155,7 @@ if (Hls.isSupported()) {
   var videojs = require('video.js'); // resolved UMD-wise through webpack
 
   // support es6 style import
-  videojs = videojs.default || videojs;
+  videojs = videojs && videojs.default || videojs;
 
   if (videojs) {
     var html5Tech = videojs.getTech && videojs.getTech('Html5'); // videojs6 (partially on videojs5 too)

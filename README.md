@@ -65,3 +65,32 @@ hls.js is [very configurable](https://github.com/dailymotion/hls.js/blob/master/
     });
 </script>
 ```
+
+## Advanced Usage
+
+### Listening to hls.js events
+
+ events are passed to the tech and can be subscribed to
+
+ ```js
+    var player = videojs('video');
+    player.tech_.on(Hls.Events.MANIFEST_LOADED, function (e) {
+        // do something
+    })
+ ```
+
+full list of hls.js events can be found [here](https://github.com/video-dev/hls.js/blob/master/doc/API.md#runtime-events)
+
+*NOTE* hls.js global is exposed to `window.Hls` when the module is loaded
+
+### Custom hls.js configuration
+
+**DO NOT USE THIS REF UNLESS YOU KNOW WHAT YOU ARE DOING**
+
+the hls.js instance is exposed on the sourceHandler instance
+
+ ```js
+    var player = videojs('video');
+    // player.tech_.sourceHandler_.hls is the underlying Hls instance
+    player.tech_.sourceHandler_.hls.currentLevel = -1
+ ```
