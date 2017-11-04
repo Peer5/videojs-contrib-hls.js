@@ -79,6 +79,25 @@ function Html5HlsJS(source, tech) {
   hls.on(Hls.Events.LEVEL_LOADED, function(event, data) {
     duration = data.details.live ? Infinity : data.details.totalduration;
   });
+  hls.on(Hls.Events.MANIFEST_LOADED, function(event,data) {
+      // clear current audioTracks
+      for (var i=0; i< data.audioTracks.length;i++){
+        data.audioTracks[i].label = data.audioTracks[i].name
+        data.audioTracks[i].hls_ = this.hls
+        Object.defineProperty(data.audioTracks[i], "enabled", {
+          set: function (x) {
+            if (x){
+              this.hls_.audioTrack = this.id; 
+            }
+          }, 
+          get: function() {
+            return this.hls_.audioTrack === this.id;
+          }
+        });
+        this.audioTracks().addTrack(data.audioTracks[i]);
+      }
+
+    }.bind(this));
 
   // try to recover on fatal errors
   hls.on(Hls.Events.ERROR, function(event, data) {
@@ -115,6 +134,23 @@ function Html5HlsJS(source, tech) {
       return tech.addTextTrack.apply(tech, arguments);
     };
   }
+
+  // Creates the audio tracks for the instance of the player
+  this.audioTracks = function() {
+    if (!tech.audioTracks_){
+      tech.audioTracks_ = tech.prototype.audioTracks();
+    }
+    return tech.audioTracks_;
+  }
+
+  // This makes sure the track changes with 
+  // Register handler on the audio track changed
+  hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, function(e) {
+    tech.player_.trigger({
+      'type': 'audiotrackchange',
+      'data': e
+    });
+  });
 
   // attach hlsjs to videotag
   hls.attachMedia(el);
