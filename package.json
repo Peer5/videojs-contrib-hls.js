@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "dependencies": {
-    "hls.js": "^0.8.5"
+    "hls.js": "^0.8.9"
   },
   "devDependencies": {
     "webpack": "2.4.1"
