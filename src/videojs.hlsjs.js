@@ -162,7 +162,7 @@ if (Hls.isSupported()) {
     html5Tech = html5Tech || (videojs.getComponent && videojs.getComponent('Html5')); // videojs5
 
     if (html5Tech) {
-      html5Tech.registerSourceHandler(HlsSourceHandler, 0);
+      html5Tech.registerSourceHandler(HlsSourceHandler);
     }
   }
   else {
