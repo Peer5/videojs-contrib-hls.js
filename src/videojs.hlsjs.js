@@ -152,7 +152,16 @@ var HlsSourceHandler = {
 };
 
 if (Hls.isSupported()) {
-  var videojs = require('video.js'); // resolved UMD-wise through webpack
+  var videojs;
+  if (typeof window !== 'undefined' && window.videojs) {
+    videojs = window.videojs;
+  } else {
+    try {
+      videojs = require('video.js'); // resolved UMD-wise through webpack
+    } catch(err) {
+      console.warn(err);
+    }
+  }
 
   // support es6 style import
   videojs = videojs && videojs.default || videojs;
