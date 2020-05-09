@@ -7,10 +7,11 @@
     "example": "examples"
   },
   "dependencies": {
-    "hls.js": "^0.8.9"
+    "hls.js": "^0.13.2"
   },
   "devDependencies": {
-    "webpack": "2.4.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "peerDependencies": {
     "video.js": "*"
